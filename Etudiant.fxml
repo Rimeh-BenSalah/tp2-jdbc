@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" style="-fx-padding:15;"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ma.projet.connexion.ControllerEtudiant">
+
+    <Label text="Gestion Etudiants" style="-fx-font-size:16; -fx-font-weight:bold;"/>
+
+    <TitledPane text="Informations Etudiant" collapsible="false">
+        <GridPane hgap="10" vgap="10" style="-fx-padding:10;">
+            <Label text="Nom :"    GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfNom" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+            <Label text="Sexe :"   GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+            <HBox spacing="5"      GridPane.rowIndex="0" GridPane.columnIndex="3">
+                <RadioButton fx:id="rbF" text="F"/>
+                <RadioButton fx:id="rbM" text="M"/>
+            </HBox>
+            <Label text="Prenom :" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="tfPrenom" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <Label text="Filiere :" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+            <ComboBox fx:id="cbFiliere" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+        </GridPane>
+    </TitledPane>
+
+    <HBox spacing="10">
+        <Button text="Ajouter"   onAction="#ajouter"/>
+        <Button text="Supprimer" onAction="#supprimer"/>
+        <Button text="Modifier"  onAction="#modifier"/>
+    </HBox>
+
+    <TitledPane text="Liste des etudiants" collapsible="false">
+        <TableView fx:id="tableView" onMouseClicked="#selectionnerLigne">
+            <columns>
+                <TableColumn fx:id="colId"      text="ID"      prefWidth="50"/>
+                <TableColumn fx:id="colNom"     text="Nom"     prefWidth="100"/>
+                <TableColumn fx:id="colPrenom"  text="Prenom"  prefWidth="100"/>
+                <TableColumn fx:id="colSexe"    text="Sexe"    prefWidth="80"/>
+                <TableColumn fx:id="colFiliere" text="Filiere" prefWidth="100"/>
+            </columns>
+        </TableView>
+    </TitledPane>
+</VBox>
